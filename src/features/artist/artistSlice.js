@@ -21,6 +21,7 @@ export const getAllArtist = createAsyncThunk(
   }
 );
 
+
 export const artistSlice = createSlice({
   name: 'artist',
   initialState,

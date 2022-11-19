@@ -1,8 +1,9 @@
 import React from 'react';
 
-function Button({ styled, children }) {
+function Button({ styled, children, onClick }) {
   return (
     <button
+    onClick={onClick}
       className={
         styled
           ? ' rounded-md shadow inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-2 py-2 text-base font-medium text-white hover:bg-indigo-700'

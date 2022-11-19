@@ -4,9 +4,8 @@ import Table from '../../components/Table';
 import { getAllArtist } from '../../features/artist/artistSlice';
 
 function ArtistsPage() {
-  const { artists, isLoading, error } = useSelector((state) => state.artist);
+  const { artists} = useSelector((state) => state.artist);
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(getAllArtist(artists));
   }, [artists, dispatch]);
@@ -23,8 +22,7 @@ function ArtistsPage() {
           tableData={artists}
           btnTitle="View artist"
           btnName="View Tweet"
-          loading={isLoading}
-          error={error}
+          route='/users'
         />
     
     </div>

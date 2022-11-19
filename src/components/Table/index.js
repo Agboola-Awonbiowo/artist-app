@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Button from '../Button';
 
 function Table({
@@ -9,11 +10,22 @@ function Table({
   thInfo,
   btnTitle,
   btnName,
+  album,
+  route,
+  tweetRoute,
 }) {
+  const navigate = useNavigate();
+  console.log({tableData})
   return (
-    <section className="antialiased py-10 bg-gray-100 text-gray-600 w-full  px-4">
+    <section className="antialiased py-10 w-full  px-4">
       <div className="flex flex-col justify-center w-full">
-        <div className="w-full max-w-4xl mx-auto pl-8 bg-white shadow-lg rounded-sm border border-gray-200">
+        <div
+          className={
+            !album
+              ? 'w-full max-w-4xl mx-auto pl-8 bg-white shadow-lg rounded-sm border border-gray-200'
+              : ' max-w-2xl   mx-auto bg-white shadow-lg rounded-sm border border-gray-200'
+          }
+        >
           <header className="px-5 py-4 border-b border-gray-100">
             <h2 className="font-semibold text-gray-800">{heading}</h2>
           </header>
@@ -23,7 +35,15 @@ function Table({
                 <thead className="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
                   <tr>
                     <th className="p-2 whitespace-nowrap">
-                      <div className="font-semibold text-left">{thTitle}</div>
+                      <div
+                        className={
+                          !album
+                            ? 'font-semibold text-left'
+                            : 'font-semibold relative left-10'
+                        }
+                      >
+                        {thTitle}
+                      </div>
                     </th>
                     <th className="p-2 whitespace-nowrap">
                       <div className="font-semibold text-left">{thDetails}</div>
@@ -32,7 +52,15 @@ function Table({
                       <div className="font-semibold text-left">{thInfo}</div>
                     </th>
                     <th className="p-2 whitespace-nowrap">
-                      <div className="font-semibold text-center">Action</div>
+                      <div
+                        className={
+                          !album
+                            ? 'font-semibold text-left'
+                            : 'font-semibold  text-left'
+                        }
+                      >
+                        Action
+                      </div>
                     </th>
                   </tr>
                 </thead>
@@ -46,8 +74,10 @@ function Table({
                           </div>
                         </div>
                       </td>
-                      <td className="p-2 whitespace-nowrap">
-                        <div className="text-left">{data.email}</div>
+                      <td className="p-2 whitespace-nowrap ml-2xl">
+                        <div className="text-left">
+                          {!album ? data.email : data.title}
+                        </div>
                       </td>
                       <td className="p-2 whitespace-nowrap">
                         <div className="text-left font-medium text-green-500">
@@ -57,9 +87,28 @@ function Table({
                       <td className="p-2 whitespace-nowrap ml-[30px]">
                         <div className="mt-8 flex lg:mt-0 lg:flex-shrink-0">
                           <span className="mr-8">
-                            <Button styled>{btnTitle}</Button>
+                            <Button
+                              onClick={() =>
+                                navigate(`${route}/${data.id}`, {
+                                  state: { name: `${data.name}` },
+                                })
+                              }
+                              styled
+                            >
+                              {btnTitle}
+                            </Button>
                           </span>
-                          <Button>{btnName}</Button>
+                          {!album && (
+                            <Button
+                              onClick={() =>
+                                navigate(`/${tweetRoute}/${data.id}`, {
+                                  state: { name: `${data.name}` },
+                                })
+                              }
+                            >
+                              {btnName}
+                            </Button>
+                          )}
                         </div>
                       </td>
                     </tr>
