@@ -13,6 +13,7 @@ function Table({
   album,
   route,
   tweetRoute,
+  artists,
 }) {
   const navigate = useNavigate();
   return (
@@ -27,9 +28,11 @@ function Table({
         >
           <header className="flex justify-between px-5 py-4 border-b border-gray-100">
             <h2 className="font-semibold text-gray-800">{heading}</h2>
-            <Link to="/">
-              <h2 className="font-semibold text-gray-800">Go back</h2>
-            </Link>
+            {!artists && (
+              <Link to="/">
+                <h2 className="font-semibold text-gray-800">Go back</h2>
+              </Link>
+            )}
           </header>
           <div className="p-3">
             <div className="overflow-x-auto">

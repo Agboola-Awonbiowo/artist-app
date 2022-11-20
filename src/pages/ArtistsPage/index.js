@@ -21,6 +21,7 @@ function ArtistsPage() {
         btnTitle="View artist"
         btnName="View Tweet"
         route="/users"
+        artists
       />
     </div>
   );
