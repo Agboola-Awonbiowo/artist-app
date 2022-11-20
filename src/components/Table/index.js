@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Button from '../Button';
 
 function Table({
@@ -25,8 +25,11 @@ function Table({
               : ' max-w-2xl   mx-auto bg-white shadow-lg rounded-sm border border-gray-200'
           }
         >
-          <header className="px-5 py-4 border-b border-gray-100">
+          <header className="flex justify-between px-5 py-4 border-b border-gray-100">
             <h2 className="font-semibold text-gray-800">{heading}</h2>
+            <Link to="/">
+              <h2 className="font-semibold text-gray-800">Go back</h2>
+            </Link>
           </header>
           <div className="p-3">
             <div className="overflow-x-auto">
