@@ -6,7 +6,7 @@ By [Agboola Awonbiowo](mailto:agboolanathaniel@yahoo.com)
 
 ## Instructions
 
-1. Navigate to [repo](https://github.com/Agboola-Awonbiowo/artist-app/tree/develop)
+1. Navigate to [repo](https://github.com/Agboola-Awonbiowo/artist-app)
 2. Clone locally using
    `git clone https://github.com/Agboola-Awonbiowo/artist-app.git`
 3. Install dependencies using `yarn install`
