@@ -1,8 +1,8 @@
 import React from 'react';
 
-function AlbumCard({ alt,  albumData }) {
+function AlbumCard({ albumData }) {
   return (
-    <div className='flex ml-10 flex-wrap'>
+    <div className="flex ml-10 flex-wrap">
       {albumData.map((data) => (
         <div
           key={data.id}
@@ -19,7 +19,7 @@ function AlbumCard({ alt,  albumData }) {
           <div className="border-t border-gray-200">
             <dl>
               <div className="bg-gray-50 px-4 py-5 flex justify-center sm:px-6">
-                <img src={data.url} alt={alt} />
+                <img src={data.url} alt="" />
               </div>
             </dl>
           </div>

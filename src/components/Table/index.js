@@ -15,7 +15,6 @@ function Table({
   tweetRoute,
 }) {
   const navigate = useNavigate();
-  console.log({tableData})
   return (
     <section className="antialiased py-10 w-full  px-4">
       <div className="flex flex-col justify-center w-full">

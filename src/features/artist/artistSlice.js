@@ -21,7 +21,6 @@ export const getAllArtist = createAsyncThunk(
   }
 );
 
-
 export const artistSlice = createSlice({
   name: 'artist',
   initialState,
@@ -31,7 +30,7 @@ export const artistSlice = createSlice({
       state.isLoading = true;
     });
     builder.addCase(getAllArtist.fulfilled, (state, action) => {
-        state.isLoading = false;
+      state.isLoading = false;
       state.artists = action.payload;
     });
     builder.addCase(getAllArtist.rejected, (state, action) => {
