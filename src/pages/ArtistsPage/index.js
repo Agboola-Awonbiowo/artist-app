@@ -13,7 +13,7 @@ function ArtistsPage() {
   return (
     <div>
       <Table
-        heading="Chokolate city artists"
+        heading="Chocolate city artists"
         thTitle="NAME"
         thDetails="EMAIL"
         thInfo="PHONE"
