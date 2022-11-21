@@ -12,6 +12,7 @@ import {
 import storage from 'redux-persist/lib/storage';
 import albumReducer from './features/album/albumSlice';
 import artistReducer from './features/artist/artistSlice';
+import tweetReducer from './features/tweets/tweetSlice'
 
 const persistConfig = {
   key: 'root',
@@ -22,6 +23,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
   artist: artistReducer,
   album: albumReducer,
+  tweet: tweetReducer
 });
 
 export const persistedReducer = persistReducer(persistConfig, rootReducer);

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Button from '../Button';
 
@@ -12,8 +11,10 @@ function Table({
   btnName,
   album,
   route,
-  tweetRoute,
+  tweet,
   artists,
+  page,
+  handleModal,
 }) {
   const navigate = useNavigate();
   return (
@@ -70,11 +71,17 @@ function Table({
                   </tr>
                 </thead>
                 <tbody className="text-sm divide-y divide-gray-100">
-                  {tableData.map((data) => (
-                    <tr key={data.id}>
+                  {tableData.map((data, index) => (
+                    <tr key={index}>
                       <td className="p-2 whitespace-nowrap">
                         <div className="flex items-center">
-                          <div className="font-medium text-gray-800">
+                          <div
+                            className={
+                              !tweet
+                                ? 'font-medium text-gray-800'
+                                : 'text-left text-ellipsis overflow-hidden w-[200px]'
+                            }
+                          >
                             {data.name}
                           </div>
                         </div>
@@ -84,9 +91,15 @@ function Table({
                           {!album ? data.email : data.title}
                         </div>
                       </td>
-                      <td className="p-2 whitespace-nowrap">
-                        <div className="text-left font-medium text-green-500">
-                          {data.phone}
+                      <td className="p-2  whitespace-nowrap">
+                        <div
+                          className={
+                            !tweet
+                              ? 'text-left '
+                              : 'text-left text-ellipsis overflow-hidden w-[250px] text-green-500'
+                          }
+                        >
+                          {!tweet ? data.phone : data.body}
                         </div>
                       </td>
                       <td className="p-2 whitespace-nowrap ml-[30px]">
@@ -105,10 +118,10 @@ function Table({
                           </span>
                           {!album && (
                             <Button
-                              onClick={() =>
-                                navigate(`/${tweetRoute}/${data.id}`, {
-                                  state: { name: `${data.name}` },
-                                })
+                              onClick={
+                                tweet
+                                  ? handleModal
+                                  : () => navigate(`${page}/${data.id}`)
                               }
                             >
                               {btnName}

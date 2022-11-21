@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useParams } from 'react-router-dom';
+import Card from '../../components/Card';
 import Table from '../../components/Table';
 import { listAlbum } from '../../features/album/albumSlice';
 
@@ -20,17 +21,10 @@ function AlbumListPage() {
   return (
     <>
       <div className="pt-[40px]">
-        <div className=" flex  flex-col justify-center overflow-hidden ">
-          <div className="relative bg-white px-6 pt-10 pb-9  mx-auto w-full max-w-lg rounded-2xl">
-            <div className="mx-auto flex w-full max-w-md flex-col space-y-16">
-              <div className="flex flex-col items-center justify-center text-center space-y-2">
-                <div className="font-semibold text-3xl">
-                  <p>{name}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+     <Card>
+       <p className='mb-[10px]'>Artist</p>
+       {name}
+       </Card>
         <Table
           heading="Albums"
           thTitle="TITLE"

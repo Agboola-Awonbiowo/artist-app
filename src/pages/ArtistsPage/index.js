@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import Card from '../../components/Card';
 import Table from '../../components/Table';
 import { getAllArtist } from '../../features/artist/artistSlice';
 
@@ -11,9 +12,9 @@ function ArtistsPage() {
   }, [artists, dispatch]);
 
   return (
-    <div>
+    <div className='pt-[40px]'>
+      <Card>Chocolate city artists</Card>
       <Table
-        heading="Chocolate city artists"
         thTitle="NAME"
         thDetails="EMAIL"
         thInfo="PHONE"
@@ -21,6 +22,7 @@ function ArtistsPage() {
         btnTitle="View artist"
         btnName="View Tweet"
         route="/users"
+        page="/posts"
         artists
       />
     </div>
